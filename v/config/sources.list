@@ -1,0 +1,8 @@
+# custom source list for singapore based.
+# I am from Indonesia you know!!
+
+deb http://ftp.sg.debian.org/debian jessie main contrib
+deb-src http://ftp.sg.debian.org/debian jessie main contrib
+
+deb http://security.debian.org/ jessie/updates main contrib
+deb-src http://security.debian.org/ jessie/updates main contrib
