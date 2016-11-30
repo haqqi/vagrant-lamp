@@ -3,7 +3,7 @@
 # change mirror to singapore
 if ! [ -f /etc/apt/sources.list.origin ]; then
   sudo mv /etc/apt/sources.list /etc/apt/source.list.origin
-  sudo cp /vagrant/v/config/sources.list /etc/apt/sources.list
+  sudo cp /vagrant/_setup/config/sources.list /etc/apt/sources.list
 fi
 
 # update the package
