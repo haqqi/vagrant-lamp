@@ -50,6 +50,6 @@ Vagrant.configure("2") do |config|
 
   config.vm.synced_folder ".", "/vagrant"
 
-  config.vm.provision :shell, path: "./_setup/provision/lamp.sh"
+  config.vm.provision :shell, path: "./_setup/provision/01-lamp.sh"
 
 end
