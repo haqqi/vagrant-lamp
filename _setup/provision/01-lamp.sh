@@ -63,12 +63,21 @@ fi
 # echo -e "-- Your web folder is in directory /vagrant.\n"
 
 echo -e "-- Installing PHP 5...\n"
-sudo apt-get install -y php5 php5-mcrypt php5-curl php5-mysql php5-gd php5-imagick > /vagrant/setup.log 2>&1
+sudo apt-get install -y curl php5 php5-mcrypt php5-curl php5-mysql php5-gd php5-imagick > /vagrant/setup.log 2>&1
 echo -e "-- Finish installing PHP 5.\n\n"
 
 echo -e "-- Changing user group of apache user...\n"
 sudo sed -i "s/APACHE_RUN_USER=.*/APACHE_RUN_USER=$APACHE_USER/g" /etc/apache2/envvars
 sudo sed -i "s/APACHE_RUN_GROUP=.*/APACHE_RUN_GROUP=$APACHE_GROUP/g" /etc/apache2/envvars
+
+# Add 1GB swap for memory overflow
+echo -e "-- Allocate swap for memory overflow...\n"
+sudo fallocate -l 1024M /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+echo "/swapfile   none    swap    sw    0   0" | sudo tee -a /etc/fstab
+printf "vm.swappiness=10\nvm.vfs_cache_pressure=50" | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
 # last process, must restart apache2 server
 sudo service apache2 restart
