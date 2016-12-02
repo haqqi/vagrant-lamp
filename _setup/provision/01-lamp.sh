@@ -70,6 +70,12 @@ echo -e "-- Changing user group of apache user...\n"
 sudo sed -i "s/APACHE_RUN_USER=.*/APACHE_RUN_USER=$APACHE_USER/g" /etc/apache2/envvars
 sudo sed -i "s/APACHE_RUN_GROUP=.*/APACHE_RUN_GROUP=$APACHE_GROUP/g" /etc/apache2/envvars
 
+echo -e "\n--- Enabling mod-rewrite ---\n"
+sudo a2enmod rewrite >> /vagrant/vm_build.log 2>&1
+
+echo -e "\n--- Allowing Apache override to all ---\n"
+sudo sed -i "s/AllowOverride None/AllowOverride All/g" /etc/apache2/apache2.conf
+
 # Add 1GB swap for memory overflow
 echo -e "-- Allocate swap for memory overflow...\n"
 sudo fallocate -l 1024M /swapfile
