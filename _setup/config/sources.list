@@ -6,3 +6,5 @@ deb-src http://ftp.sg.debian.org/debian jessie main contrib
 
 deb http://security.debian.org/ jessie/updates main contrib
 deb-src http://security.debian.org/ jessie/updates main contrib
+
+deb http://download.webmin.com/download/repository sarge contrib
