@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# install git
+echo "Install Git"
+sudo apt-get install git > /vagrant/setup.log 2>&1
+
 echo "Install composer"
 sudo curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
