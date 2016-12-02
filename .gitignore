@@ -18,3 +18,8 @@ Thumbs.db
 # Vagrant runtime
 .vagrant
 setup.log
+
+# sites directory
+sites/*
+!sites/.gitkeep
+
