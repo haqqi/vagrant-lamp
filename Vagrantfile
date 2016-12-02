@@ -51,5 +51,7 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder ".", "/vagrant"
 
   config.vm.provision :shell, path: "./_setup/provision/01-lamp.sh"
+  config.vm.provision :shell, path: "./_setup/provision/02-vhost.sh"
+  config.vm.provision :shell, path: "./_setup/provision/03-development.sh"
 
 end
