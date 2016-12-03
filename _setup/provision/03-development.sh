@@ -23,5 +23,5 @@ echo -e "\n--- Access webmin in your server via port 10000 ---\n"
 echo -e "Install nodejs 6 & bower"
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt-get install -y nodejs > /vagrant/setup.log 2>&1
-npm install -g bower
+sudo npm install -g bower > /vagrant/setup.log 2>&1
 
